@@ -15,5 +15,5 @@ metadata:
   name: quote-backend
 spec:
   hostname: "example.amb-labs.io"
-  prefix: /backend/
+  prefix: /quote/
   service: quote.default:80
