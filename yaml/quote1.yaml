@@ -6,5 +6,5 @@ metadata:
 spec:
   hostname: "*"
   # hostname: ""
-  prefix: /backend/
+  prefix: /quote/
   service: quote.default:80
