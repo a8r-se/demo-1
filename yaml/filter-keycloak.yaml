@@ -15,7 +15,6 @@ spec:
       value: "{{ .token.Claims.name }}"
     protectedOrigins:
     - origin: https://example.amb-labs.io
-      includeSubdomains: true
 
 ---
 # Filter for parsing a JWT access token
@@ -59,3 +58,18 @@ spec:
           onDeny: "continue"
         - name: keycloak-filter-quote
         # - name: external-filter-userinfo
+
+---
+apiVersion: getambassador.io/v3alpha1
+kind: FilterPolicy
+metadata:
+  name: filter-policy
+spec:
+  rules:
+    - host: "*"
+      path: "*"
+      filters:
+        - name: keycloak-jwt-filter-quote
+          onAllow: "break" # This onAllow/onDeny behavior allows for the fallthrough behavior such that a valid JWT will ignore the remaining filters after this one
+          onDeny: "continue"
+        - name: keycloak-filter-quote
