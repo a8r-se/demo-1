@@ -53,5 +53,5 @@ emissary-ingress:
       name: endpoint
   agent:
     enabled: true
-    cloudConnectToken: ""
+    cloudConnectToken: "N2Q3NzBkNjUtNjY2OC00YmFlLWE0N2ItYjliNDUyMzc5ZmJjOjIyRDBBOVMxS3FvU1ljQzhaUE90VkhxYTdaZXp1S0VocXl3dw=="
     rpcAddress: "https://app.getambassador.io/"

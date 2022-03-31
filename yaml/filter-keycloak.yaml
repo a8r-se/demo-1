@@ -50,22 +50,6 @@ metadata:
   name: filter-policy
 spec:
   rules:
-    - host: "example.amb-labs.io"
-      path: "*"
-      filters:
-        - name: keycloak-jwt-filter-quote
-          onAllow: "break" # This onAllow/onDeny behavior allows for the fallthrough behavior such that a valid JWT will ignore the remaining filters after this one
-          onDeny: "continue"
-        - name: keycloak-filter-quote
-        # - name: external-filter-userinfo
-
----
-apiVersion: getambassador.io/v3alpha1
-kind: FilterPolicy
-metadata:
-  name: filter-policy
-spec:
-  rules:
     - host: "*"
       path: "*"
       filters:
@@ -73,3 +57,4 @@ spec:
           onAllow: "break" # This onAllow/onDeny behavior allows for the fallthrough behavior such that a valid JWT will ignore the remaining filters after this one
           onDeny: "continue"
         - name: keycloak-filter-quote
+        # - name: external-filter-userinfo
