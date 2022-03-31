@@ -1,0 +1,24 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  annotations: {}
+  name: quote-backend
+  namespace: default
+spec:
+  ambassador_id:
+  - default
+  hostname: example.amb-labs.io
+  labels:
+    ambassador:
+    - header_request_label:
+      - request_headers:
+          header_name: x-token-name
+          key: headerkey
+  prefix: /backend/
+  service: quote.default:80
+  host_rewrite: subdomain.amb-labs.io
+  retry_policy:
+    retry_on: 5xx
+    num_retries: 1
+    per_try_timeout: 150ms
+  connect_timeout_ms: 3000
